@@ -419,13 +419,13 @@ function Home() {
             {/* Left Side - Services */}
             <div className="relative">
               {/* Vertical Timeline Line */}
-              <div className="absolute left-2 top-0 w-0.5 h-full bg-gradient-to-b from-orange-500 via-orange-500 to-transparent"></div>
+              <div className="absolute left-2 top-0 w-0.5 h-full bg-gradient-to-b from-indigo-500  to-purple-500"></div>
 
               <div className="space-y-12">
                 {services.map((service, index) => (
                   <div key={index} className="relative flex items-start space-x-6">
                     {/* Orange Timeline Dot */}
-                    <div className="relative z-10 w-4 h-4 bg-orange-500 rounded-full flex-shrink-0 mt-2"></div>
+                    <div className="relative z-10 w-4 h-4 bg-gradient-to-b from-indigo-500  to-purple-500 rounded-full flex-shrink-0 mt-3"></div>
 
                     {/* Service Content */}
                     <div className="flex items-start space-x-4 flex-1">
@@ -472,7 +472,7 @@ function Home() {
               Skills & Experience
             </h2>
             <div className="w-32 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto mb-4"></div>
-            <p className="text-gray-400 text-lg">1 Year 6 Months of Development Experience</p>
+            <p className="text-gray-400 text-lg">1 Year of Development Experience</p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-16">
