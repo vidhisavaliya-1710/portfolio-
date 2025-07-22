@@ -1,10 +1,11 @@
-// Redesigned Home.jsx - Light Theme, Modern Layout, Tailwind CSS
+// Updated Home.jsx - New Hero and About Section Design
 import React, { useState, useEffect, useRef } from 'react';
 import * as THREE from 'three';
-import { ChevronDown, Github, ExternalLink, Mail, Phone, MapPin, Code, Database, Smartphone, Globe, Star, ArrowRight, Menu, X } from 'lucide-react';
+import { ChevronDown, Github, ExternalLink, Mail, Phone, MapPin, Code, Database, Smartphone, Globe, Star, ArrowRight, Menu, X, Server, Zap } from 'lucide-react';
+import me from '../assets/me.jpg'
 
 function Home() {
- const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const mountRef = useRef(null);
   const sceneRef = useRef(null);
@@ -16,16 +17,16 @@ function Home() {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-    
+
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setClearColor(0x000000, 0);
     mountRef.current.appendChild(renderer.domElement);
 
     // Create floating geometric shapes
     const geometry = new THREE.IcosahedronGeometry(1, 0);
-    const material = new THREE.MeshPhongMaterial({ 
-      color: 0x6366f1, 
-      transparent: true, 
+    const material = new THREE.MeshPhongMaterial({
+      color: 0x6366f1,
+      transparent: true,
       opacity: 0.8,
       shininess: 100
     });
@@ -45,7 +46,7 @@ function Home() {
     // Add lights
     const ambientLight = new THREE.AmbientLight(0x404040, 0.6);
     scene.add(ambientLight);
-    
+
     const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
     directionalLight.position.set(1, 1, 1);
     scene.add(directionalLight);
@@ -56,7 +57,7 @@ function Home() {
     // Animation loop
     const animate = () => {
       requestAnimationFrame(animate);
-      
+
       shapes.forEach((shape, index) => {
         shape.rotation.x += 0.01;
         shape.rotation.y += 0.01;
@@ -144,20 +145,152 @@ function Home() {
     }
   ];
 
-  const skills = [
-    { name: "React", level: 95, icon: <Globe className="w-6 h-6" /> },
-    { name: "Node.js", level: 90, icon: <Database className="w-6 h-6" /> },
-    { name: "JavaScript", level: 95, icon: <Code className="w-6 h-6" /> },
-    { name: "MongoDB", level: 85, icon: <Database className="w-6 h-6" /> },
-    { name: "React Native", level: 80, icon: <Smartphone className="w-6 h-6" /> },
-    { name: "Three.js", level: 75, icon: <Globe className="w-6 h-6" /> }
+  const expertSkills = [
+    {
+      name: "HTML",
+      icon: "HTML",
+      color: "from-orange-500 to-orange-600",
+      borderColor: "border-orange-500/50"
+    },
+    {
+      name: "CSS",
+      icon: "CSS",
+      color: "from-blue-500 to-blue-600",
+      borderColor: "border-blue-500/50"
+    },
+    {
+      name: "Bootstrap",
+      icon: "BS",
+      color: "from-purple-600 to-purple-700",
+      borderColor: "border-purple-600/50"
+    },
+    {
+      name: "Tailwind CSS",
+      icon: "TW",
+      color: "from-cyan-400 to-cyan-500",
+      borderColor: "border-cyan-400/50"
+    },
+    {
+      name: "JavaScript",
+      icon: "JS",
+      color: "from-yellow-400 to-yellow-500",
+      borderColor: "border-yellow-400/50"
+    },
+    {
+      name: "React.js",
+      icon: "⚛",
+      color: "from-cyan-400 to-blue-500",
+      borderColor: "border-cyan-400/50"
+    },
+    {
+      name: "Node.js",
+      icon: "⬢",
+      color: "from-green-500 to-green-600",
+      borderColor: "border-green-500/50"
+    },
+    {
+      name: "Express.js",
+      icon: "Ex",
+      color: "from-gray-600 to-gray-700",
+      borderColor: "border-gray-500/50"
+    },
+    {
+      name: "MongoDB",
+      icon: "🍃",
+      color: "from-green-500 to-green-700",
+      borderColor: "border-green-500/50"
+    },
+     {
+      name: "PHP",
+      icon: "PHP",
+      color: "from-indigo-600 to-purple-600",
+      borderColor: "border-indigo-500/30"
+    },
+    {
+      name: "Next.js",
+      icon: "N",
+      color: "from-gray-800 to-black",
+      borderColor: "border-gray-600/30"
+    }
   ];
+
+ 
+
+  const SkillCard = ({ skill, isBasic = false }) => (
+    <div className={`
+      group relative bg-gray-800/60 backdrop-blur-sm p-6 rounded-2xl 
+      border-2 transition-all duration-300 cursor-pointer
+      hover:scale-105 hover:bg-gray-700/70
+      ${skill.borderColor}
+      ${isBasic ? 'opacity-70 hover:opacity-100' : ''}
+    `}>
+      <div className="flex flex-col items-center text-center">
+        {/* Icon */}
+        <div className={`
+          w-16 h-16 rounded-xl flex items-center justify-center text-2xl font-bold text-white mb-4
+          bg-gradient-to-br ${skill.color}
+          group-hover:shadow-lg transition-all duration-300
+        `}>
+          {skill.icon}
+        </div>
+
+        {/* Skill Name */}
+        <h3 className="text-white font-semibold text-sm group-hover:text-indigo-300 transition-colors">
+          {skill.name}
+        </h3>
+
+        {/* Level Indicator */}
+        {isBasic && (
+          <span className="text-xs text-gray-400 mt-1 opacity-60">Basic</span>
+        )}
+      </div>
+
+      {/* Glow effect on hover */}
+      <div className={`
+        absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300
+        bg-gradient-to-br ${skill.color}
+      `}></div>
+    </div>
+  );
+
+  const experiences = [
+    {
+      company: "Navuscore Softcom Solutions Pvt. Ltd",
+      duration: "6 months",
+      role: "Full Stack Developer",
+      period: "March-2025 - Current",
+      description: "Working on full-stack development projects using modern technologies",
+      technologies: ["React", "Node.js", "MongoDB", "Express.js"]
+    },
+    {
+      company: "Sattvam Soft",
+      duration: "6 months",
+      role: "Intern & Junior MERN Stack Developer",
+      period: "Oct-2024 - March-2025",
+      description: "Started as intern (2 months) and continued as developer (4 months)",
+      technologies: ["JavaScript", "React", "Node.js"]
+    }
+  ];
+
+  const services = [
+    {
+      icon: <Code className="w-8 h-8" />,
+      title: "MERN Stack Developer",
+      description: "Building robust web applications using MongoDB, Express.js, React, and Node.js with seamless frontend-backend integration."
+    },
+    {
+      icon: <Globe className="w-8 h-8" />,
+      title: "Full Stack Developer",
+      description: "Designing and developing end-to-end web solutions, from interactive UIs to secure server-side logic, using modern technologies."
+    }
+  ];
+
 
   return (
     <div className="bg-gray-900 text-white min-h-screen relative overflow-hidden">
       {/* Three.js Background */}
       <div ref={mountRef} className="fixed inset-0 z-0" />
-      
+
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-900/80 backdrop-blur-sm border-b border-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -165,16 +298,15 @@ function Home() {
             <div className="text-2xl font-bold bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">
               Vidhi Savaliya
             </div>
-            
+
             {/* Desktop Menu */}
             <div className="hidden md:flex space-x-8">
               {['home', 'about', 'skills', 'projects', 'contact'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
-                  className={`capitalize transition-colors duration-200 hover:text-indigo-400 ${
-                    activeSection === item ? 'text-indigo-400' : 'text-gray-300'
-                  }`}
+                  className={`capitalize transition-colors duration-200 hover:text-indigo-400 ${activeSection === item ? 'text-indigo-400' : 'text-gray-300'
+                    }`}
                 >
                   {item}
                 </button>
@@ -209,86 +341,123 @@ function Home() {
         )}
       </nav>
 
-      {/* Hero Section */}
-      <section id="home" className="relative z-10 min-h-screen flex items-center justify-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* NEW HERO SECTION - Similar to first image */}
+      <section id="home" className="relative z-10 min-h-screen flex items-center">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-10  grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left Content */}
           <div className="animate-fade-in">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-              Vidhi Savaliya
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-300 mb-8">
-              Full Stack Developer & Creative Problem Solver
-            </p>
-            <p className="text-lg text-gray-400 mb-12 max-w-2xl mx-auto">
-              I craft beautiful, functional web applications that drive business growth. 
-              Specializing in React, Node.js, and modern web technologies.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="mb-8">
+              <h1 className="text-5xl md:text-6xl font-bold mb-4">
+                Hello
+              </h1>
+              <div className="w-20 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mb-6">
+              </div>
+              <p className="text-xl text-gray-300 mb-4">I'm Vidhi</p>
+              <h2 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                Full Stack Developer
+              </h2>
+              <p className="text-xl text-gray-300 mb-4">I craft beautiful, functional web applications that drive business growth.
+                Specializing in React, Node.js, and modern web technologies.</p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <button
                 onClick={() => scrollToSection('projects')}
-                className="bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 px-8 py-3 rounded-full font-semibold transition-all duration-200 transform hover:scale-105"
+                className="bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 px-8 py-3 rounded font-semibold transition-all duration-200 transform hover:scale-105"
               >
-                View My Work
+                Got a project?
               </button>
               <button
-                onClick={() => scrollToSection('contact')}
-                className="border border-indigo-500 hover:bg-indigo-500 px-8 py-3 rounded-full font-semibold transition-all duration-200 transform hover:scale-105"
+                onClick={() => scrollToSection('about')}
+                className="border border-indigo-500 hover:bg-indigo-500 px-8 py-3 rounded font-semibold transition-all duration-200 transform hover:scale-105"
               >
-                Get In Touch
+                My resume
               </button>
             </div>
+
+            {/* Tech Stack */}
+            <div className="flex flex-wrap gap-8 text-gray-400 text-sm">
+              <span>HTML5</span>
+              <span>CSS</span>
+              <span>Javascript</span>
+              <span>Node.js</span>
+              <span>React</span>
+              <span>Git</span>
+              <span>Github</span>
+            </div>
           </div>
-        </div>
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ChevronDown className="w-8 h-8 text-gray-400" />
+
+          {/* Right Content - Profile Image */}
+          <div className="relative flex justify-center lg:justify-end">
+            <div className="relative">
+              {/* Indigo Circle Background */}
+              <div className="w-90 h-90 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-full opacity-90"></div>
+
+              {/* Profile Image Placeholder */}
+              <div className="absolute inset-4 bg-gray-700 rounded-full flex items-center justify-center overflow-hidden">
+                {/* You can replace this with an actual image */}
+                <img
+                  src={me}
+                  alt="Profile"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Decorative Elements */}
+              <div className="absolute -top-4 -right-4 w-8 h-8 border-2 border-indigo-500 transform rotate-45"></div>
+              <div className="absolute -bottom-4 -left-4 w-8 h-8 border-2 border-indigo-500 transform rotate-45"></div>
+              <div className="absolute top-1/2 -right-8 w-6 h-6 border-2 border-indigo-500 transform rotate-45"></div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* About Section */}
+      {/* NEW ABOUT SECTION - Similar to second image */}
       <section id="about" className="relative z-10 py-20 bg-gray-800/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">
-              About Me
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto"></div>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h3 className="text-2xl font-semibold mb-6 text-indigo-400">
-                Passionate Developer & Problem Solver
-              </h3>
-              <p className="text-gray-300 mb-6 leading-relaxed">
-                I'm a full-stack developer with a passion for creating innovative web solutions. 
-                With expertise in modern technologies like React, Node.js, and MongoDB, I help 
-                businesses transform their ideas into powerful digital experiences.
-              </p>
-              <p className="text-gray-300 mb-6 leading-relaxed">
-                My approach combines technical excellence with creative problem-solving, ensuring 
-                that every project not only meets requirements but exceeds expectations.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <span className="px-4 py-2 bg-indigo-500/20 text-indigo-300 rounded-full text-sm">
-                  3+ Years Experience
-                </span>
-                <span className="px-4 py-2 bg-purple-500/20 text-purple-300 rounded-full text-sm">
-                  50+ Projects Completed
-                </span>
-                <span className="px-4 py-2 bg-pink-500/20 text-pink-300 rounded-full text-sm">
-                  Happy Clients
-                </span>
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left Side - Services */}
+            <div className="relative">
+              {/* Vertical Timeline Line */}
+              <div className="absolute left-2 top-0 w-0.5 h-full bg-gradient-to-b from-orange-500 via-orange-500 to-transparent"></div>
+
+              <div className="space-y-12">
+                {services.map((service, index) => (
+                  <div key={index} className="relative flex items-start space-x-6">
+                    {/* Orange Timeline Dot */}
+                    <div className="relative z-10 w-4 h-4 bg-orange-500 rounded-full flex-shrink-0 mt-2"></div>
+
+                    {/* Service Content */}
+                    <div className="flex items-start space-x-4 flex-1">
+                      <div className="text-white p-2">
+                        {service.icon}
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-xl font-semibold text-white mb-2">
+                          {service.title}
+                        </h3>
+                        <p className="text-gray-400 text-sm leading-relaxed max-w-md">
+                          {service.description}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-            
-            <div className="relative">
-              <div className="w-80 h-80 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-full mx-auto opacity-20 animate-pulse"></div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-6xl mb-4">👩‍💻</div>
-                  <p className="text-lg text-gray-300">Building the future, one line at a time</p>
-                </div>
-              </div>
+
+            {/* Right Side - About Content */}
+            <div>
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
+                About me
+              </h2>
+
+              <p className="text-gray-300 leading-relaxed mb-12 text-lg">
+                I started my software journey from photography. Through that, I learned to
+                love the process of creating from scratch. Since then, this has led me to
+                software development as it fulfills my love for learning and building things.
+              </p>
+
             </div>
           </div>
         </div>
@@ -296,32 +465,93 @@ function Home() {
 
       {/* Skills Section */}
       <section id="skills" className="relative z-10 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          {/* Section Header */}
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">
-              Technical Skills
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">
+              Skills & Experience
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto"></div>
+            <div className="w-32 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto mb-4"></div>
+            <p className="text-gray-400 text-lg">1 Year 6 Months of Development Experience</p>
           </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {skills.map((skill, index) => (
-              <div key={index} className="bg-gray-800/50 p-6 rounded-lg border border-gray-700 hover:border-indigo-500 transition-all duration-200 transform hover:scale-105">
-                <div className="flex items-center mb-4">
-                  <div className="text-indigo-400 mr-3">
-                    {skill.icon}
-                  </div>
-                  <h3 className="text-xl font-semibold">{skill.name}</h3>
-                </div>
-                <div className="w-full bg-gray-700 rounded-full h-2">
-                  <div
-                    className="bg-gradient-to-r from-indigo-500 to-purple-500 h-2 rounded-full transition-all duration-1000"
-                    style={{ width: `${skill.level}%` }}
-                  ></div>
-                </div>
-                <p className="text-sm text-gray-400 mt-2">{skill.level}% Proficiency</p>
-              </div>
+
+          <div className="grid lg:grid-cols-2 gap-16">
+            {/* Left Side - Skills */}
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
+                  <Zap className="w-6 h-6 text-indigo-500 mr-2" />
+                  Technical Skills
+                </h3>
+
+                {/* Experienced Skills */}
+                  <div className="mb-12">
+          {/* <h3 className="text-2xl font-bold text-white mb-8 flex items-center justify-center">
+            <span className="w-3 h-3 bg-green-500 rounded-full mr-3"></span>
+            Proficient Skills
+          </h3> */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-6">
+            {expertSkills.map((skill, index) => (
+              <SkillCard key={index} skill={skill} />
             ))}
+          </div>
+        </div>
+
+              </div>
+            </div>
+
+            {/* Right Side - Experience */}
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
+                  <Database className="w-6 h-6 text-purple-500 mr-2" />
+                  Work Experience
+                </h3>
+
+                <div className="relative">
+                  {/* Timeline Line */}
+                  <div className="absolute left-6 top-8 w-0.5 h-3/4 bg-gradient-to-b from-indigo-500 to-purple-500"></div>
+
+                  <div className="space-y-8">
+                    {experiences.map((exp, index) => (
+                      <div key={index} className="relative bg-gray-800/60 p-6 rounded-xl border border-gray-700 hover:border-indigo-500/50 transition-all duration-300 transform hover:scale-[1.02]">
+                        {/* Timeline Dot */}
+                        <div className="absolute -left-2 top-8 w-4 h-4 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full border-4 border-slate-900"></div>
+
+                        <div className="ml-8">
+                          <div className="flex justify-between items-start mb-3">
+                            <div>
+                              <h4 className="text-xl font-bold text-white">{exp.company}</h4>
+                              <p className="text-indigo-400 font-semibold">{exp.role}</p>
+                            </div>
+                            <div className="text-right">
+                              <span className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                {exp.period}
+                              </span>
+                              <p className="text-gray-400 text-sm mt-1">{exp.duration}</p>
+                            </div>
+                          </div>
+
+                          <p className="text-gray-300 mb-4 leading-relaxed">
+                            {exp.description}
+                          </p>
+
+                          <div className="flex flex-wrap gap-2">
+                            {exp.technologies.map((tech, techIndex) => (
+                              <span key={techIndex} className="bg-gray-700/60 text-indigo-300 px-3 py-1 rounded-lg text-sm font-medium border border-gray-600">
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -338,7 +568,7 @@ function Home() {
               Here are some of my recent projects that showcase my skills and creativity
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
               <div key={index} className="bg-gray-800/50 rounded-lg overflow-hidden border border-gray-700 hover:border-indigo-500 transition-all duration-200 transform hover:scale-105">
@@ -392,7 +622,7 @@ function Home() {
               Ready to bring your project to life? Let's discuss how I can help you achieve your goals.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 gap-12">
             <div>
               <h3 className="text-2xl font-semibold mb-6 text-indigo-400">Get In Touch</h3>
@@ -410,7 +640,7 @@ function Home() {
                   <span className="text-gray-300">Surat, Gujarat, India</span>
                 </div>
               </div>
-              
+
               <div className="mt-8">
                 <h4 className="text-lg font-semibold mb-4 text-indigo-400">Why Choose Me?</h4>
                 <ul className="space-y-2 text-gray-300">
@@ -433,7 +663,7 @@ function Home() {
                 </ul>
               </div>
             </div>
-            
+
             <div className="bg-gray-800/50 p-8 rounded-lg border border-gray-700">
               <div className="space-y-6">
                 <div>
@@ -477,7 +707,7 @@ function Home() {
       <footer className="relative z-10 py-8 bg-gray-900 border-t border-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-gray-400">
-            © 2024 Vidhi Savaliya. All rights reserved. Built with React, Tailwind CSS & Three.js
+            © 2025 Vidhi Savaliya. All rights reserved. Built with React, Tailwind CSS & Three.js
           </p>
         </div>
       </footer>
