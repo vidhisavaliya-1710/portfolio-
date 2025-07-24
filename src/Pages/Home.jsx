@@ -181,13 +181,6 @@ function Home() {
       color: "hover:text-red-400"
     },
     {
-      name: "Twitter",
-      icon: Twitter,
-      url: "https://twitter.com/vidhi_savaliya",
-      description: "Tech insights & industry updates",
-      color: "hover:text-blue-300"
-    },
-    {
       name: "Instagram",
       icon: Instagram,
       url: "https://instagram.com/vidhi.savaliya",
@@ -642,7 +635,7 @@ function Home() {
 </section>
 
       {/* Contact Section */}
-     <div className="bg-gray-900 min-h-screen">
+    <div className="bg-gray-900 min-h-screen">
       <section id="contact" className="relative z-10 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -655,135 +648,38 @@ function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* Contact Info */}
-            <div>
-              <h3 className="text-2xl font-semibold mb-6 text-indigo-400">Get In Touch</h3>
-              <div className="space-y-4 mb-8">
-                <div className="flex items-center">
-                  <Mail className="w-6 h-6 text-indigo-400 mr-4" />
-                  <span className="text-gray-300">vidhi.savaliya@example.com</span>
-                </div>
-                <div className="flex items-center">
-                  <Phone className="w-6 h-6 text-indigo-400 mr-4" />
-                  <span className="text-gray-300">+91 12345 67890</span>
-                </div>
-                <div className="flex items-center">
-                  <MapPin className="w-6 h-6 text-indigo-400 mr-4" />
-                  <span className="text-gray-300">Surat, Gujarat, India</span>
-                </div>
-              </div>
-
-              <div>
-                <h4 className="text-lg font-semibold mb-4 text-indigo-400">Why Choose Me?</h4>
-                <ul className="space-y-2 text-gray-300">
-                  <li className="flex items-center">
-                    <Star className="w-4 h-4 text-yellow-400 mr-2" />
-                    Clean, maintainable code
-                  </li>
-                  <li className="flex items-center">
-                    <Star className="w-4 h-4 text-yellow-400 mr-2" />
-                    Responsive design
-                  </li>
-                  <li className="flex items-center">
-                    <Star className="w-4 h-4 text-yellow-400 mr-2" />
-                    On-time delivery
-                  </li>
-                  <li className="flex items-center">
-                    <Star className="w-4 h-4 text-yellow-400 mr-2" />
-                    Post-launch support
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Social Media Section */}
-            <div>
-              <h3 className="text-2xl font-semibold mb-6 text-indigo-400">Follow Me Online</h3>
-              <div className="space-y-4">
-                {socialLinks.map((social, index) => {
-                  const IconComponent = social.icon;
-                  return (
-                    <div
-                      key={index}
-                      className="bg-gray-800/50 p-6 rounded-lg border border-gray-700 hover:border-indigo-500/50 transition-all duration-300 group"
-                    >
-                      <div className="flex items-start justify-between">
-                        <div className="flex items-center space-x-4">
-                          <div className="p-3 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 rounded-lg group-hover:from-indigo-500/30 group-hover:to-purple-500/30 transition-all duration-300">
-                            <IconComponent className={`w-6 h-6 text-gray-300 transition-colors duration-300 ${social.color}`} />
-                          </div>
-                          <div>
-                            <h4 className="text-lg font-semibold text-white group-hover:text-indigo-300 transition-colors duration-300">
-                              {social.name}
-                            </h4>
-                            <p className="text-gray-400 text-sm mt-1">
-                              {social.description}
-                            </p>
-                          </div>
-                        </div>
-                        <a
-                          href={social.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="p-2 bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 rounded-lg transition-all duration-200 transform hover:scale-110 opacity-80 group-hover:opacity-100"
-                        >
-                          <ExternalLink className="w-4 h-4 text-white" />
-                        </a>
-                      </div>
+          {/* Social Media Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {socialLinks.map((social, index) => {
+              const IconComponent = social.icon;
+              return (
+                <div
+                  key={index}
+                  className="bg-gray-800/50 p-6 rounded-lg border border-gray-700 hover:border-indigo-500/50 transition-all duration-300 group hover:transform hover:scale-105"
+                >
+                  <div className="text-center">
+                    <div className="inline-flex p-4 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 rounded-full group-hover:from-indigo-500/30 group-hover:to-purple-500/30 transition-all duration-300 mb-4">
+                      <IconComponent className={`w-8 h-8 text-gray-300 transition-colors duration-300 ${social.color}`} />
                     </div>
-                  );
-                })}
-              </div>
-
-              {/* Quick Action Buttons */}
-              <div className="mt-8 space-y-3">
-                <a
-                  href="mailto:vidhi.savaliya@example.com"
-                  className="w-full bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 px-6 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 flex items-center justify-center text-white"
-                >
-                  <Mail className="w-4 h-4 mr-2" />
-                  Send Email
-                </a>
-                <a
-                  href="https://linkedin.com/in/vidhi-savaliya"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full bg-gray-800/50 hover:bg-gray-700/50 border border-gray-700 hover:border-indigo-500/50 px-6 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 flex items-center justify-center text-gray-300 hover:text-white"
-                >
-                  <Linkedin className="w-4 h-4 mr-2" />
-                  Connect on LinkedIn
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom Call-to-Action */}
-          <div className="mt-16 text-center">
-            <div className="bg-gradient-to-r from-indigo-500/10 to-purple-500/10 border border-indigo-500/20 rounded-lg p-8">
-              <h4 className="text-xl font-semibold text-white mb-4">
-                Ready to Start Your Project?
-              </h4>
-              <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-                I'm always open to discussing new opportunities, collaborating on interesting projects, or just having a chat about technology and development.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
-                  href="mailto:vidhi.savaliya@example.com?subject=Project Inquiry"
-                  className="bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 px-8 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 text-white"
-                >
-                  Start a Conversation
-                </a>
-                <a
-                  href="https://github.com/vidhi-savaliya"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-gray-800/50 hover:bg-gray-700/50 border border-gray-700 hover:border-indigo-500/50 px-8 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 text-gray-300 hover:text-white"
-                >
-                  View My Work
-                </a>
-              </div>
-            </div>
+                    <h4 className="text-xl font-semibold text-white group-hover:text-indigo-300 transition-colors duration-300 mb-2">
+                      {social.name}
+                    </h4>
+                    <p className="text-gray-400 text-sm mb-6">
+                      {social.description}
+                    </p>
+                    <a
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 px-6 py-2 rounded-lg transition-all duration-200 transform hover:scale-110 text-white font-medium"
+                    >
+                      Connect
+                      <ExternalLink className="w-4 h-4 ml-2" />
+                    </a>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
