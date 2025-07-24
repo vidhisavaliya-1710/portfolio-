@@ -1,7 +1,7 @@
 // Updated Home.jsx - New Hero and About Section Design
 import React, { useState, useEffect, useRef } from 'react';
 import * as THREE from 'three';
-import { ChevronDown, Github, ExternalLink, Mail, Phone, MapPin, Code, Database, Smartphone, Globe, Star, ArrowRight, Menu, X, Server, Zap } from 'lucide-react';
+import { ChevronDown, Github, ExternalLink, Mail, Phone, MapPin, Code, Database, Smartphone, Globe, Linkedin,Twitter,Instagram ,Star, ArrowRight, Menu, X, Server, Zap } from 'lucide-react';
 import me from '../assets/me.jpg'
 import html from '../assets/html.png'
 import css from '../assets/css.png'
@@ -14,6 +14,9 @@ import express from '../assets/express.webp'
 import Mongodb from '../assets/Mongodb.png'
 import php from '../assets/php.png'
 import nextjs from '../assets/nextjs.png'
+import project1 from '../assets/project1.png'
+import project2 from '../assets/project2.png'
+import project3 from '../assets/project3.png'
 
 function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -131,101 +134,67 @@ function Home() {
 
   const projects = [
     {
-      title: "E-Commerce Platform",
+      title: "Elite Concept Homes",
       description: "Full-stack e-commerce solution with React, Node.js, and MongoDB. Features include user authentication, payment integration, and admin dashboard.",
-      tech: ["React", "Node.js", "MongoDB", "Stripe"],
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop",
+      tech: ["React", "Node.js", "MongoDB","Socket.io"],
+      image: project1,
       liveLink: "#",
       githubLink: "#"
     },
     {
-      title: "Task Management App",
+      title: "Pathsy Logistics Solutions Pvt. Ltd.",
       description: "Collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
-      tech: ["React", "Firebase", "Tailwind CSS", "Socket.io"],
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop",
+      tech: ["React",  "Tailwind CSS"],
+      image: project2,
       liveLink: "#",
       githubLink: "#"
     },
     {
-      title: "Weather Dashboard",
+      title: "The Black Turn",
       description: "Real-time weather application with geolocation, forecasts, and interactive maps. Built with modern React and weather APIs.",
-      tech: ["React", "OpenWeather API", "Chart.js", "Geolocation"],
-      image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=400&h=300&fit=crop",
+      tech: ["React", "Node.Js", "MongoDB", "Tailwind Css"],
+      image: project3,
       liveLink: "#",
       githubLink: "#"
     }
   ];
-
-  const expertSkills = [
+ const socialLinks = [
     {
-      name: "HTML",
-      icon: "HTML",
-      color: "from-orange-500 to-orange-600",
-      borderColor: "border-orange-500/50"
+      name: "LinkedIn",
+      icon: Linkedin,
+      url: "https://linkedin.com/in/vidhi-savaliya",
+      description: "Professional network & career updates",
+      color: "hover:text-blue-400"
     },
     {
-      name: "CSS",
-      icon: "CSS",
-      color: "from-blue-500 to-blue-600",
-      borderColor: "border-blue-500/50"
+      name: "GitHub",
+      icon: Github,
+      url: "https://github.com/vidhi-savaliya",
+      description: "Code repositories & open source projects",
+      color: "hover:text-gray-300"
     },
     {
-      name: "Bootstrap",
-      icon: "BS",
-      color: "from-purple-600 to-purple-700",
-      borderColor: "border-purple-600/50"
+      name: "Email",
+      icon: Mail,
+      url: "mailto:vidhi.savaliya@example.com",
+      description: "Direct communication for business inquiries",
+      color: "hover:text-red-400"
     },
     {
-      name: "Tailwind CSS",
-      icon: "TW",
-      color: "from-cyan-400 to-cyan-500",
-      borderColor: "border-cyan-400/50"
+      name: "Twitter",
+      icon: Twitter,
+      url: "https://twitter.com/vidhi_savaliya",
+      description: "Tech insights & industry updates",
+      color: "hover:text-blue-300"
     },
     {
-      name: "JavaScript",
-      icon: "JS",
-      color: "from-yellow-400 to-yellow-500",
-      borderColor: "border-yellow-400/50"
-    },
-    {
-      name: "React.js",
-      icon: "⚛",
-      color: "from-cyan-400 to-blue-500",
-      borderColor: "border-cyan-400/50"
-    },
-    {
-      name: "Node.js",
-      icon: "⬢",
-      color: "from-green-500 to-green-600",
-      borderColor: "border-green-500/50"
-    },
-    {
-      name: "Express.js",
-      icon: "Ex",
-      color: "from-gray-600 to-gray-700",
-      borderColor: "border-gray-500/50"
-    },
-    {
-      name: "MongoDB",
-      icon: "🍃",
-      color: "from-green-500 to-green-700",
-      borderColor: "border-green-500/50"
-    },
-     {
-      name: "PHP",
-      icon: "PHP",
-      color: "from-indigo-600 to-purple-600",
-      borderColor: "border-indigo-500/30"
-    },
-    {
-      name: "Next.js",
-      icon: "N",
-      color: "from-gray-800 to-black",
-      borderColor: "border-gray-600/30"
+      name: "Instagram",
+      icon: Instagram,
+      url: "https://instagram.com/vidhi.savaliya",
+      description: "Behind the scenes & creative inspiration",
+      color: "hover:text-pink-400"
     }
   ];
-
- 
 
   const SkillCard = ({ skill, isBasic = false }) => (
     <div className={`
@@ -614,7 +583,7 @@ function Home() {
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-300"
+                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
@@ -673,22 +642,24 @@ function Home() {
 </section>
 
       {/* Contact Section */}
+     <div className="bg-gray-900 min-h-screen">
       <section id="contact" className="relative z-10 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">
-              Let's Work Together
+              Let's Connect
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto"></div>
             <p className="text-gray-300 mt-4 max-w-2xl mx-auto">
-              Ready to bring your project to life? Let's discuss how I can help you achieve your goals.
+              Find me across various platforms. I'm always excited to connect with fellow developers, potential collaborators, and anyone interested in my work.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12">
+            {/* Contact Info */}
             <div>
               <h3 className="text-2xl font-semibold mb-6 text-indigo-400">Get In Touch</h3>
-              <div className="space-y-4">
+              <div className="space-y-4 mb-8">
                 <div className="flex items-center">
                   <Mail className="w-6 h-6 text-indigo-400 mr-4" />
                   <span className="text-gray-300">vidhi.savaliya@example.com</span>
@@ -703,7 +674,7 @@ function Home() {
                 </div>
               </div>
 
-              <div className="mt-8">
+              <div>
                 <h4 className="text-lg font-semibold mb-4 text-indigo-400">Why Choose Me?</h4>
                 <ul className="space-y-2 text-gray-300">
                   <li className="flex items-center">
@@ -726,44 +697,98 @@ function Home() {
               </div>
             </div>
 
-            <div className="bg-gray-800/50 p-8 rounded-lg border border-gray-700">
-              <div className="space-y-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">Name</label>
-                  <input
-                    type="text"
-                    className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-indigo-500 text-white"
-                    placeholder="Your Name"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">Email</label>
-                  <input
-                    type="email"
-                    className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-indigo-500 text-white"
-                    placeholder="your@email.com"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">Project Details</label>
-                  <textarea
-                    rows={4}
-                    className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-indigo-500 text-white"
-                    placeholder="Tell me about your project..."
-                  ></textarea>
-                </div>
-                <button
-                  onClick={() => alert('Contact form submitted! In a real implementation, this would send an email or save to a database.')}
-                  className="w-full bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 px-6 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 flex items-center justify-center"
+            {/* Social Media Section */}
+            <div>
+              <h3 className="text-2xl font-semibold mb-6 text-indigo-400">Follow Me Online</h3>
+              <div className="space-y-4">
+                {socialLinks.map((social, index) => {
+                  const IconComponent = social.icon;
+                  return (
+                    <div
+                      key={index}
+                      className="bg-gray-800/50 p-6 rounded-lg border border-gray-700 hover:border-indigo-500/50 transition-all duration-300 group"
+                    >
+                      <div className="flex items-start justify-between">
+                        <div className="flex items-center space-x-4">
+                          <div className="p-3 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 rounded-lg group-hover:from-indigo-500/30 group-hover:to-purple-500/30 transition-all duration-300">
+                            <IconComponent className={`w-6 h-6 text-gray-300 transition-colors duration-300 ${social.color}`} />
+                          </div>
+                          <div>
+                            <h4 className="text-lg font-semibold text-white group-hover:text-indigo-300 transition-colors duration-300">
+                              {social.name}
+                            </h4>
+                            <p className="text-gray-400 text-sm mt-1">
+                              {social.description}
+                            </p>
+                          </div>
+                        </div>
+                        <a
+                          href={social.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-2 bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 rounded-lg transition-all duration-200 transform hover:scale-110 opacity-80 group-hover:opacity-100"
+                        >
+                          <ExternalLink className="w-4 h-4 text-white" />
+                        </a>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Quick Action Buttons */}
+              <div className="mt-8 space-y-3">
+                <a
+                  href="mailto:vidhi.savaliya@example.com"
+                  className="w-full bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 px-6 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 flex items-center justify-center text-white"
                 >
-                  Send Message
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </button>
+                  <Mail className="w-4 h-4 mr-2" />
+                  Send Email
+                </a>
+                <a
+                  href="https://linkedin.com/in/vidhi-savaliya"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-gray-800/50 hover:bg-gray-700/50 border border-gray-700 hover:border-indigo-500/50 px-6 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 flex items-center justify-center text-gray-300 hover:text-white"
+                >
+                  <Linkedin className="w-4 h-4 mr-2" />
+                  Connect on LinkedIn
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Call-to-Action */}
+          <div className="mt-16 text-center">
+            <div className="bg-gradient-to-r from-indigo-500/10 to-purple-500/10 border border-indigo-500/20 rounded-lg p-8">
+              <h4 className="text-xl font-semibold text-white mb-4">
+                Ready to Start Your Project?
+              </h4>
+              <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
+                I'm always open to discussing new opportunities, collaborating on interesting projects, or just having a chat about technology and development.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                  href="mailto:vidhi.savaliya@example.com?subject=Project Inquiry"
+                  className="bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 px-8 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 text-white"
+                >
+                  Start a Conversation
+                </a>
+                <a
+                  href="https://github.com/vidhi-savaliya"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-gray-800/50 hover:bg-gray-700/50 border border-gray-700 hover:border-indigo-500/50 px-8 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 text-gray-300 hover:text-white"
+                >
+                  View My Work
+                </a>
               </div>
             </div>
           </div>
         </div>
       </section>
+    </div>
+
 
       {/* Footer */}
       <footer className="relative z-10 py-8 bg-gray-900 border-t border-gray-700">
