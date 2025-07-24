@@ -3,6 +3,17 @@ import React, { useState, useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { ChevronDown, Github, ExternalLink, Mail, Phone, MapPin, Code, Database, Smartphone, Globe, Star, ArrowRight, Menu, X, Server, Zap } from 'lucide-react';
 import me from '../assets/me.jpg'
+import html from '../assets/html.png'
+import css from '../assets/css.png'
+import bootstrap from '../assets/bootstrap.png'
+import tailwind from '../assets/Tailwind.png'
+import javascript from '../assets/javascript.png'
+import react from '../assets/react.svg'
+import node from '../assets/nodejs.png'
+import express from '../assets/express.webp'
+import Mongodb from '../assets/Mongodb.png'
+import php from '../assets/php.png'
+import nextjs from '../assets/nextjs.png'
 
 function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -465,7 +476,7 @@ function Home() {
 
       {/* Skills Section */}
       <section id="skills" className="relative z-10 py-20">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto  px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">
@@ -484,18 +495,38 @@ function Home() {
                   Technical Skills
                 </h3>
 
-                {/* Experienced Skills */}
-                  <div className="mb-12">
-          {/* <h3 className="text-2xl font-bold text-white mb-8 flex items-center justify-center">
-            <span className="w-3 h-3 bg-green-500 rounded-full mr-3"></span>
-            Proficient Skills
-          </h3> */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-6">
-            {expertSkills.map((skill, index) => (
-              <SkillCard key={index} skill={skill} />
-            ))}
-          </div>
-        </div>
+            
+{/* Updated Skills Grid - Enhanced with shadow, glass and glow */}
+<div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-4 gap-6 px-4">
+  {[
+    { name: 'HTML', icon: html },
+    { name: 'CSS', icon: css },
+    { name: 'Bootstrap', icon: bootstrap },
+    { name: 'Tailwind', icon: tailwind },
+    { name: 'JavaScript', icon: javascript },
+    { name: 'React', icon: react },
+    { name: 'Node.js', icon: node },
+    { name: 'Express.js', icon: express },
+    { name: 'MongoDB', icon: Mongodb },
+    { name: 'PHP', icon: php },
+    { name: 'Next.js', icon: nextjs },
+  ].map((skill, index) => (
+    <div
+      key={index}
+      className="flex flex-col items-center justify-center p-4 rounded-xl border border-white/10 
+        bg-white/5 backdrop-blur-md shadow-[inset_0_0_0.5px_#fff3] transition-all duration-300 
+        group hover:scale-105 hover:border-indigo-500/70 hover:shadow-[0_0_15px_#6366f1cc]"
+    >
+      <div className="w-16 h-16 mb-4 rounded-lg bg-white/10 backdrop-blur-sm flex items-center justify-center group-hover:shadow-[0_0_10px_#6366f1aa]">
+  <img src={skill.icon} alt={skill.name} className="w-10 h-10 object-contain" />
+</div>
+
+      {/* <p className="text-white text-sm font-medium">{skill.name}</p> */}
+    </div>
+  ))}
+</div>
+
+
 
               </div>
             </div>
@@ -514,14 +545,14 @@ function Home() {
 
                   <div className="space-y-8">
                     {experiences.map((exp, index) => (
-                      <div key={index} className="relative bg-gray-800/60 p-6 rounded-xl border border-gray-700 hover:border-indigo-500/50 transition-all duration-300 transform hover:scale-[1.02]">
+                      <div key={index} className="relative bg-gray-800/60 p-6 rounded-xl border border-gray-700 hover:border-indigo-500/50 transition-all duration-300 transform">
                         {/* Timeline Dot */}
                         <div className="absolute -left-2 top-8 w-4 h-4 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full border-4 border-slate-900"></div>
 
                         <div className="ml-8">
                           <div className="flex justify-between items-start mb-3">
                             <div>
-                              <h4 className="text-xl font-bold text-white">{exp.company}</h4>
+                              <h4 className="max-w-[300px] text-xl font-bold text-white">{exp.company}</h4>
                               <p className="text-indigo-400 font-semibold">{exp.role}</p>
                             </div>
                             <div className="text-right">
@@ -557,58 +588,89 @@ function Home() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="relative z-10 py-20 bg-gray-800/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">
-              Featured Projects
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto"></div>
-            <p className="text-gray-300 mt-4 max-w-2xl mx-auto">
-              Here are some of my recent projects that showcase my skills and creativity
-            </p>
+    <section id="projects" className="relative z-10 py-20 bg-gray-800/50">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-16">
+      <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">
+        Featured Projects
+      </h2>
+      <div className="w-24 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto"></div>
+      <p className="text-gray-300 mt-4 max-w-2xl mx-auto">
+        Here are some of my recent projects that showcase my skills and creativity
+      </p>
+    </div>
+
+    <div className="space-y-16">
+      {projects.map((project, index) => (
+        <div 
+          key={index} 
+          className={`flex flex-col lg:flex-row items-center gap-8 ${
+            index % 2 === 1 ? 'lg:flex-row-reverse' : ''
+          }`}
+        >
+          {/* Image Section */}
+          <div className="lg:w-1/2">
+            <div className="relative group overflow-hidden rounded-lg border border-gray-700 hover:border-indigo-500 transition-all duration-300">
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <div key={index} className="bg-gray-800/50 rounded-lg overflow-hidden border border-gray-700 hover:border-indigo-500 transition-all duration-200 transform hover:scale-105">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-3 text-indigo-400">{project.title}</h3>
-                  <p className="text-gray-300 mb-4 text-sm leading-relaxed">{project.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map((tech, techIndex) => (
-                      <span key={techIndex} className="px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-xs">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="flex gap-4">
-                    <a
-                      href={project.liveLink}
-                      className="flex items-center text-indigo-400 hover:text-indigo-300 transition-colors"
-                    >
-                      <ExternalLink className="w-4 h-4 mr-1" />
-                      Live Demo
-                    </a>
-                    <a
-                      href={project.githubLink}
-                      className="flex items-center text-gray-400 hover:text-gray-300 transition-colors"
-                    >
-                      <Github className="w-4 h-4 mr-1" />
-                      Code
-                    </a>
-                  </div>
-                </div>
+          {/* Content Section */}
+          <div className="lg:w-1/2 space-y-6">
+            <div>
+              <h3 className="text-3xl font-bold mb-4 text-indigo-400">
+                {project.title}
+              </h3>
+              <p className="text-gray-300 text-lg leading-relaxed">
+                {project.description}
+              </p>
+            </div>
+
+            {/* Tech Stack */}
+            <div>
+              <h4 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">
+                Technologies Used
+              </h4>
+              <div className="flex flex-wrap gap-3">
+                {project.tech.map((tech, techIndex) => (
+                  <span 
+                    key={techIndex} 
+                    className="px-4 py-2 bg-indigo-500/20 text-indigo-300 rounded-full text-sm font-medium border border-indigo-500/30 hover:bg-indigo-500/30 transition-colors"
+                  >
+                    {tech}
+                  </span>
+                ))}
               </div>
-            ))}
+            </div>
+
+            {/* Links */}
+            <div className="flex gap-6 pt-4">
+              <a
+                href={project.liveLink}
+                className="flex items-center px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-medium transition-colors group"
+              >
+                <ExternalLink className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
+                Live Demo
+              </a>
+              <a
+                href={project.githubLink}
+                className="flex items-center px-6 py-3 border border-gray-600 hover:border-gray-500 text-gray-300 hover:text-white rounded-lg font-medium transition-colors group"
+              >
+                <Github className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
+                View Code
+              </a>
+            </div>
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* Contact Section */}
       <section id="contact" className="relative z-10 py-20">
