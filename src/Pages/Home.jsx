@@ -220,10 +220,9 @@ function Home() {
     {
       title: "Elite Concept Homes",
       description: "A real estate platform for showcasing housing projects, featuring property listings, project details, user authentication, and an admin dashboard for content management.",
-      tech: ["React", "Node.js", "MongoDB", "Socket.io"],
+      tech: ["React", "Node.js", "MongoDB", "Socket.io", "Tailwind Css"],
       image: project1,
       liveLink: "http://18.233.150.206/",
-      githubLink: "#"
     },
     {
       title: "Pathsy Logistics Solutions Pvt. Ltd.",
@@ -231,7 +230,6 @@ function Home() {
       tech: ["React", "Tailwind CSS"],
       image: project2,
       liveLink: "https://pathsy-logistics-solutions.vercel.app/#/",
-      githubLink: "#"
     },
     {
       title: "The Black Turn",
@@ -239,15 +237,13 @@ function Home() {
       tech: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
       image: project3,
       liveLink: "https://theblackturn.in/",
-      githubLink: "#"
     },
     {
       title: "Novuscore Drones",
-      description: "A modern website for a drone service provider, featuring responsive layouts, service showcases, and dynamic UI built with React, Tailwind CSS, and Sass.",
-      tech: ["React", "Sass", "Tailwind CSS"],
+      description: "A modern website for a drone service provider, featuring responsive layouts, service showcases, and dynamic UI built with React, Tailwind CSS, and Scss.",
+      tech: ["React", "Scss", "Tailwind CSS", "Node.js"],
       image: project4,
       liveLink: "https://novuscroedrone.netlify.app/",
-      githubLink: "#"
     }
   ];
 
@@ -707,10 +703,10 @@ function Home() {
                       whileTap={{ scale: 0.95 }}
                     >
                       <div className="w-12 h-12 sm:w-16 sm:h-16 mb-2 sm:mb-4 rounded-lg bg-white/10 backdrop-blur-sm flex items-center justify-center group-hover:shadow-[0_0_10px_#6366f1aa]">
-                        <img 
-                          src={skill.icon} 
-                          alt={skill.name} 
-                          className="w-8 h-8 sm:w-10 sm:h-10 object-contain" 
+                        <img
+                          src={skill.icon}
+                          alt={skill.name}
+                          className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
                         />
                       </div>
                       <span className="text-xs sm:text-sm text-gray-300">{skill.name}</span>
@@ -767,7 +763,7 @@ function Home() {
                         <div className="ml-6 sm:ml-8">
                           <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2 sm:mb-3 gap-2">
                             <div>
-                              <h4 className="text-lg sm:text-xl font-bold text-white">{exp.company}</h4>
+                              <h4 className="max-w-[300px] text-lg sm:text-xl font-bold text-white">{exp.company}</h4>
                               <p className="text-indigo-400 font-semibold text-sm sm:text-base">{exp.role}</p>
                             </div>
                             <div className="sm:text-right">
