@@ -241,7 +241,7 @@ function Home() {
     {
       title: "Novuscore Drones",
       description: "A modern website for a drone service provider, featuring responsive layouts, service showcases, and dynamic UI built with React, Tailwind CSS, and Scss.",
-      tech: ["React", "Scss", "Tailwind CSS", "Node.js"],
+      tech: ["React", "Scss", "Tailwind CSS", "Node.js","SuperBase"],
       image: project4,
       liveLink: "https://novuscore.co.in/",
     }
