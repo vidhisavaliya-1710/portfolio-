@@ -243,7 +243,7 @@ function Home() {
       description: "A modern website for a drone service provider, featuring responsive layouts, service showcases, and dynamic UI built with React, Tailwind CSS, and Scss.",
       tech: ["React", "Scss", "Tailwind CSS", "Node.js"],
       image: project4,
-      liveLink: "https://novuscroedrone.netlify.app/",
+      liveLink: "https://novuscore.co.in/",
     }
   ];
 
