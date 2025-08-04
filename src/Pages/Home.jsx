@@ -153,7 +153,7 @@ function Home() {
     sceneRef.current = { scene, camera, renderer, shapes };
 
     // Animation loop
-    const animate = () => {
+    const animate = () => {x
       requestAnimationFrame(animate);
 
       shapes.forEach((shape, index) => {
