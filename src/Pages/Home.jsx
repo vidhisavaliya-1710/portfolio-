@@ -280,7 +280,7 @@ function Home() {
 
   const experiences = [
     {
-      company: "Navuscore Softcom Solutions Pvt. Ltd",
+      company: "Sumeru Networks",
       duration: "5 months",
       role: "Full Stack Developer",
       period: "March-2025 - Current",
