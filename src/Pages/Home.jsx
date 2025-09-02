@@ -281,7 +281,7 @@ function Home() {
   const experiences = [
     {
       company: "Navuscore Softcom Solutions Pvt. Ltd",
-      duration: "4 months",
+      duration: "5 months",
       role: "Full Stack Developer",
       period: "March-2025 - Current",
       description: "Working on full-stack development projects using modern technologies",
